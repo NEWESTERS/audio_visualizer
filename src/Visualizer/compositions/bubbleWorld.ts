@@ -6,13 +6,14 @@ import { getRandomColor, DEFAULT_COLOR } from "../helpers/color";
 const REPOSITION_FREQUENCY = 2;
 const BUBBLE_COUNT = 30;
 const LIFECYCLE_LENGTH = REPOSITION_FREQUENCY * BUBBLE_COUNT;
+let CIRCLE_COORDS = randomizeCoords();
 
 interface IScaledPoint extends IPoint {
     scaleMultiplier: number;
     color: string;
 }
 
-const randomizeCoords = (): IScaledPoint[] => {
+function randomizeCoords(): IScaledPoint[] {
     let array: IScaledPoint[] = [];
 
     for (let i = 0; i < BUBBLE_COUNT; i++) {
@@ -25,8 +26,6 @@ const randomizeCoords = (): IScaledPoint[] => {
 
     return array;
 }
-
-let CIRCLE_COORDS = randomizeCoords();
 
 let time = 0;
 

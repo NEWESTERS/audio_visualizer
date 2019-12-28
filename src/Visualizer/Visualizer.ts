@@ -23,18 +23,26 @@ export class Visualizer {
         return makePositive(this.getData()[freq]);
     };
 
+    clearCanvas = () => {
+        const ctx = this.ctx;
+
+        ctx.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        
+        ctx.beginPath();
+        ctx.rect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        ctx.fillStyle = "#000000";
+        ctx.fill();
+        ctx.closePath();
+    }
+
     redraw = () => {
-        this.ctx.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        this.clearCanvas();
 
         // drawMiddleCircle(this.ctx, this.getFreqValue(6));
-        drawSpectrum(this.ctx, this.getData());
+        // drawSpectrum(this.ctx, this.getData());
         drawBubbleWorld(this.ctx, this.getData(), true);
         // drawStrobe(this.ctx, this.getFreqValue(6));
 
         requestAnimationFrame(this.redraw);
     };
-}
-
-function smoothOutValue(value: number) {
-    return Math.round(value / 10) * 10;
 }

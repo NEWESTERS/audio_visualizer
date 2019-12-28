@@ -23,4 +23,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./Visualizer":"ms3M"}],"jP6t":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("./AudioAPI"),t=require("./Visualizer"),n=require("./Visualizer/constants"),u=function(n){var u=new e.AudioAPI;return new t.Visualizer(n,u)};window.onload=function(){var e=document.getElementById("start-button"),t=document.getElementById("fullscreen-button"),i=document.getElementById("main-canvas"),r=i.getContext("2d");i.width=n.WINDOW_WIDTH,i.height=n.WINDOW_HEIGHT,e.addEventListener("click",function(){u(r),e.remove()}),t.addEventListener("click",function(){var e=i;e.webkitRequestFullScreen?e.webkitRequestFullScreen():e.mozRequestFullScreen()})};
 },{"./AudioAPI":"r6FO","./Visualizer":"JDoR","./Visualizer/constants":"ctiB"}]},{},["jP6t"], null)
-//# sourceMappingURL=audio_visualizer/main.8b8581ed.js.map
+//# sourceMappingURL=main.8b8581ed.js.map

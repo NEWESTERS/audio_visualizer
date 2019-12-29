@@ -1,10 +1,16 @@
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../constants";
 import { DEFAULT_COLOR } from "../helpers/color";
 
-const MAX_VALUE = 80
+const MIN_VALUE = -130,
+    MAX_VALUE = -40,
+    MIDDLE_VALUE = (MIN_VALUE + MAX_VALUE) / 2;
 
 function interpolateToOpacity(value: number) {
-    return value / MAX_VALUE;
+    if(value > MIDDLE_VALUE) {
+        return (value - MIN_VALUE) / (MAX_VALUE - MIN_VALUE);
+    } else {
+        return 0;
+    }
 }
 
 export function drawStrobe(ctx: CanvasRenderingContext2D, value: number) {

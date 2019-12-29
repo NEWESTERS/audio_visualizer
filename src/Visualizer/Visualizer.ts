@@ -20,7 +20,7 @@ export class Visualizer {
     getData = () => this.audioAPI.getAudioData();
 
     getFreqValue = (freq: number) => {
-        return makePositive(this.getData()[freq]);
+        return this.getData()[freq];
     };
 
     clearCanvas = () => {
@@ -40,8 +40,8 @@ export class Visualizer {
 
         // drawMiddleCircle(this.ctx, this.getFreqValue(6));
         // drawSpectrum(this.ctx, this.getData());
+        drawStrobe(this.ctx, this.getFreqValue(6));
         drawBubbleWorld(this.ctx, this.getData(), true);
-        // drawStrobe(this.ctx, this.getFreqValue(6));
 
         requestAnimationFrame(this.redraw);
     };

@@ -54,10 +54,10 @@ function getOpacityByLifeCycleTime(time: number) {
 }
 
 function getOpacityByIndex(index: number) {
-    let offsettedTime = time + index * REPOSITION_FREQUENCY;
+    let offsettedTime = time - index * REPOSITION_FREQUENCY;
 
-    if(offsettedTime > LIFECYCLE_LENGTH) {
-        offsettedTime -= LIFECYCLE_LENGTH
+    if(offsettedTime < 0) {
+        offsettedTime += LIFECYCLE_LENGTH 
     }
 
     return getOpacityByLifeCycleTime(offsettedTime);
